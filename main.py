@@ -150,7 +150,7 @@ def book_entry():
     location = request.form['location']
     book_ids = request.form.getlist('book_id')
 
-    status = BookStatus.available if location == '图书流通室' else BookStatus.unborrowable
+    status = BookStatus.available if location == 'Circulation Room' else BookStatus.unborrowable
     books = [Book(id=book_id, cip=cip, location=location, status=status, librarian=librarian) for book_id in book_ids]
 
     db_session.add_all(books)
